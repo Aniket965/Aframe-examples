@@ -1,0 +1,42 @@
+<html>
+    <head>
+      <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+      <script src="https://unpkg.com/aframe-mountain-component@0.3.3/dist/aframe-mountain-component.min.js"></script>      
+    </head>
+    <body>
+      <a-scene fog="type:exponential;color:#eee;">
+        <a-assets>
+              <img id="milkyway-sky" src="sky.jpg"/>
+              <img id="mountain-texture" src="Marbel.jpg"/>
+              <a-asset-item id="goose-mtl" src="model/GOOSE.MTL" preload="auto"></a-asset-item>
+              <a-asset-item id="goose" src="model/GOOSE.OBJ" preload="auto"></a-asset-item>    
+        </a-assets>
+
+        <a-sky 
+            material="src: #milkyway-sky">
+        </a-sky>
+        <a-mountain
+            id="mountain"
+            position="1.527 7.043 3.920"
+            light="type: directional; color: #fff; intensity: 0.9;position: 0 20 20;tagert:#mountain" 
+            material="src: #mountain-texture">
+        </a-mountain>
+        <a-entity
+        position="-5 3 -3"
+        rotation="0 90 0"
+        obj-model="obj: #goose;mtl: #goose-mtl"
+        >
+        <a-animation
+        attribute="position"
+        dur="10000"
+        repeat="indefinite"
+        direction="alternative"
+        from="-5 3 -3"
+        to="15 3 -3"
+        >
+
+        </a-animation>
+        </a-entity>
+
+      </a-scene>
+    </body>
